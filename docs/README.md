@@ -21,7 +21,7 @@ Update the code within the service, ensure the the service class implements inte
 ```ts
 
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot } from '@angular/router';
+import { CanActivate} from '@angular/router';
 import { AuthenticationService } from '../services/auth.service';
 import { AlertController } from '@ionic/angular';
 
@@ -32,7 +32,7 @@ export class AuthGuardService implements CanActivate {
 
   constructor(private authenticationService: AuthenticationService, private alertController: AlertController) { }
 
-  canActivate(private activatedRouteSnapshot: ActivatedRouteSnapshot) {
+  canActivate() {
     if (this.authenticationService.getLoggedInStatus()) {
       return true;
     }
